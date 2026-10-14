@@ -49,7 +49,7 @@ The site follows the visitor's device (light or dark) on the first visit. The su
 
 ## Deploy
 
-1. Create a Postgres database (Neon, Supabase, RDS…) and set `DATABASE_URL` and `PAYLOAD_SECRET`.
+1. Create a hosted Postgres database (Neon, Supabase, RDS…) and set `DATABASE_URL` and `PAYLOAD_SECRET` in the Vercel project's Environment Variables for both Preview and Production. `DATABASE_URL` must be reachable from Vercel; do not use the local `127.0.0.1` example from `.env.example`.
 2. `npm run build && npm start`. Migrations in `src/migrations` run automatically on first start in production.
 3. Uploaded media is stored in `/media` on disk. On serverless hosts such as Vercel, add a storage adapter (`@payloadcms/storage-s3` or `@payloadcms/storage-vercel-blob`).
 
