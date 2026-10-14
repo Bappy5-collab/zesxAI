@@ -339,9 +339,8 @@ textarea.zx-input { height: auto; min-height: 112px; padding: var(--space-3) var
 @media (max-width: 999px) {
   .zx-hero--backdrop { min-height: 0; align-items: end; }
   .zx-hero--backdrop .zx-gallery-wrap { top: -40px; bottom: auto; height: 62%; left: -12%; right: -12%; }
-  .zx-hero--backdrop .zx-gallery { height: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); opacity: .5; transform: perspective(1200px) rotateX(10deg) rotateZ(-4deg) scale(1.05); }
-  .zx-hero--backdrop .zx-gallery__col:nth-child(3) { display: flex; }
-  .zx-hero--backdrop .zx-gallery__col:nth-child(4) { display: none; }
+  .zx-hero--backdrop .zx-gallery { height: 100%; grid-template-columns: repeat(4, minmax(0, 1fr)); opacity: .5; transform: perspective(1200px) rotateX(10deg) rotateZ(-4deg) scale(1.05); }
+  .zx-hero--backdrop .zx-gallery__col:nth-child(3), .zx-hero--backdrop .zx-gallery__col:nth-child(4) { display: flex; }
   .zx-hero--backdrop::after { background: linear-gradient(180deg, rgba(13,11,10,.35) 0%, rgba(13,11,10,.5) 30%, var(--bg-000) 58%); }
   .zx-hero--backdrop .zx-hero__content { padding: 42vh 0 64px; }
 }

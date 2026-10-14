@@ -8,6 +8,19 @@ import {
   CaseShowcase, ClientLogos, IntroFloat, PlatformTotals, CtaBand, FlowCanvas, Gallery, ProcessFlow, Products, SectionHead, ServiceBento, TextReviewRows, VideoReviews,
 } from '@/components/sections'
 
+const HERO_IMAGES = [
+  '/images/Hero/site_score.png',
+  '/images/Hero/Screenshot%202026-10-14%20131517.png',
+  '/images/Hero/Screenshot%202026-10-14%20131347.png',
+  '/images/Hero/Screenshot%202026-10-14%20131334.png',
+  '/images/Hero/Screenshot%202026-10-14%20130142.png',
+  '/images/Hero/Screenshot%202026-10-12%20132631.png',
+  '/images/Hero/Screenshot%202026-09-15%20215646.png',
+  '/images/Hero/Screenshot%202026-07-26%20074627.png',
+  '/images/Hero/Screenshot%202026-07-26%20074512.png',
+  '/images/Hero/Screenshot%202026-07-26%20074148.png',
+]
+
 export async function generateMetadata() {
   const home = await loadGlobal('home-page')
   const h = home.hero
@@ -39,7 +52,7 @@ export default async function Home() {
   return (
     <>
       <section className="zx-hero zx-hero--backdrop" style={{ marginTop: -72 }}>
-        {tiles.length > 0 && <Gallery tiles={tiles} />}
+        <Gallery tiles={tiles} images={HERO_IMAGES} />
         <div className="zx-wrap">
           <HeroScroll>
           <div className="zx-hero__content">

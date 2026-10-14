@@ -56,7 +56,26 @@ function Tile({ t }: { t: GalleryTile }) {
   )
 }
 
-export function Gallery({ tiles, id = 'gallery-home' }: { tiles: GalleryTile[]; id?: string }) {
+export function Gallery({ tiles, images, id = 'gallery-home' }: { tiles: GalleryTile[]; images?: string[]; id?: string }) {
+  if (images?.length) {
+    const imageCols: string[][] = [[], [], [], []]
+    images.forEach((src, i) => imageCols[i % imageCols.length].push(src))
+    return (
+      <div className="zx-gallery-wrap">
+        <div className="zx-gallery" id={id} aria-hidden="true">
+          {imageCols.map((col, i) => (
+            <div className="zx-gallery__col" key={i}>
+              {col.map((src, j) => (
+                <figure className="zx-tile" style={{ ['--ar' as string]: (i + j) % 3 === 0 ? '16 / 12' : '4 / 5' }} key={src}>
+                  <img src={src} alt="" loading={j > 0 ? 'lazy' : 'eager'} />
+                </figure>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
   const cols: GalleryTile[][] = [[], [], [], []]
   tiles.forEach((t) => cols[Math.max(0, Math.min(3, Number(t.column || 1) - 1))].push(t))
   const used = cols.filter((c) => c.length)
