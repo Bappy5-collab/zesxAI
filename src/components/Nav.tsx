@@ -1,5 +1,6 @@
 'use client'
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import { useState } from 'react'
 import { Icon } from './Icon'
 import { Logo } from './Logo'
@@ -13,9 +14,9 @@ export function Nav({ siteName, items, cta, logo, logoLight }: { siteName: strin
   return (
     <header className="zx-nav" id="nav">
       <div className="zx-nav__bar">
-        <a className="zx-logo" href="/" aria-label={`${siteName} home`}>
+        <Link className="zx-logo" href="/" aria-label={`${siteName} home`}>
           <Logo alt={siteName} logo={logo} logoLight={logoLight} />
-        </a>
+        </Link>
         <nav className="zx-nav__links" aria-label="Main">
           {items.map(({ href, label }) => (
             <a href={href} aria-current={cur(href)} key={href}>

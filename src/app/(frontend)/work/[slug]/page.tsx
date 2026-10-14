@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import type { Service } from '@/payload-types'
 import { getClient, isVideo, loadGlobal, mediaUrl, values } from '@/lib/payload'
 import { Arrow, Svg } from '@/components/Icon'
@@ -48,9 +49,9 @@ export default async function CaseDetail({ params }: Props) {
       <section className="zx-section" style={{ paddingTop: 130, paddingBottom: 'var(--space-8)' }}>
         <div className="zx-wrap" style={{ display: 'grid', gap: 20 }}>
           <nav className="zx-crumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
             <span>/</span>
-            <a href="/work">Work</a>
+            <Link href="/work">Work</Link>
             <span>/</span>
             <span aria-current="page">{c.tabLabel}</span>
           </nav>

@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { getClient, loadGlobal, serviceImage, values } from '@/lib/payload'
 import { Arrow, Icon, Svg } from '@/components/Icon'
 import { Check } from '@/components/Pricing'
@@ -54,9 +55,9 @@ export default async function ServiceDetail({ params }: Props) {
         <div className="zx-wrap zx-detail-grid" style={{ alignItems: 'center' }}>
           <div style={{ display: 'grid', gap: 20 }}>
             <nav className="zx-crumbs" aria-label="Breadcrumb">
-              <a href="/">Home</a>
+              <Link href="/">Home</Link>
               <span>/</span>
-              <a href="/services">Services</a>
+              <Link href="/services">Services</Link>
               <span>/</span>
               <span aria-current="page">{s.title}</span>
             </nav>

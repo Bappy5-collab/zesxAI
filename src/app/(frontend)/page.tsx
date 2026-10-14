@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { loadAll, loadGlobal, mediaUrl } from '@/lib/payload'
 import { ERP_GRAPH } from '@/lib/visuals'
 import { Arrow } from '@/components/Icon'
@@ -69,9 +70,9 @@ export default async function Home() {
               <a className="zx-btn zx-btn--primary" href="/contact#book" data-mag>
                 {h?.primaryLabel || 'Book a call'} <Arrow />
               </a>
-              <a className="zx-btn zx-btn--ghost" href="/work">
+              <Link className="zx-btn zx-btn--ghost" href="/work">
                 {h?.secondaryLabel || 'See our work'}
-              </a>
+              </Link>
             </div>
             {!!h?.stats?.length && (
               <div className="zx-hero__meta zx-reveal" style={{ ['--d' as string]: '800ms' }}>
@@ -105,9 +106,9 @@ export default async function Home() {
           <SectionHead head={home.services} />
           <ServiceBento services={services} />
           <div style={{ marginTop: 32 }}>
-            <a className="zx-btn zx-btn--ghost" href="/services">
+            <Link className="zx-btn zx-btn--ghost" href="/services">
               {b?.services || 'Explore our services'} <Arrow />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

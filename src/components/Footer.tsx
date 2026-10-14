@@ -1,4 +1,5 @@
 import type { SiteSetting } from '@/payload-types'
+import Link from 'next/link'
 import { Logo } from './Logo'
 import { Icon } from './Icon'
 import { telLink, waLink } from './Contact'
@@ -25,9 +26,9 @@ export function Footer({ settings: s, nav }: { settings: SiteSetting; nav: { lab
       <div className="zx-footer">
         <div className="zx-footer__cols">
           <div style={{ display: 'grid', gap: 12, alignContent: 'start' }}>
-            <a className="zx-logo" href="/" aria-label={`${s.siteName || 'Zesxai'} home`}>
+            <Link className="zx-logo" href="/" aria-label={`${s.siteName || 'Zesxai'} home`}>
               <Logo alt={s.siteName || 'Zesxai'} logo={logo} logoLight={mediaUrl(s.logoLight)} />
-            </a>
+            </Link>
             <p className="zx-muted" style={{ margin: 0, fontSize: 14, maxWidth: '32ch' }}>
               {s.footerText}
             </p>
