@@ -1,0 +1,418 @@
+{
+ "services": [
+  [
+   "stack",
+   "ERP systems",
+   "Custom ERP for finance, inventory, HR, payroll and operations, built around how your business actually runs.",
+   [
+    "Finance",
+    "Inventory",
+    "HR",
+    "Reports"
+   ]
+  ],
+  [
+   "folder",
+   "Business apps for SMBs",
+   "CRM, POS, inventory, booking and back-office tools that replace spreadsheets and save hours every week.",
+   [
+    "CRM",
+    "POS",
+    "Inventory",
+    "Booking"
+   ]
+  ],
+  [
+   "code",
+   "Web apps & SaaS",
+   "Multi-tenant SaaS platforms, customer portals and dashboards with auth, billing and admin built in.",
+   [
+    "Next.js",
+    "TypeScript",
+    "Supabase"
+   ]
+  ],
+  [
+   "card",
+   "Mobile apps",
+   "iOS and Android apps that share one codebase and one backend with your web product.",
+   [
+    "iOS",
+    "Android",
+    "Offline"
+   ]
+  ],
+  [
+   "brain",
+   "AI & automation",
+   "AI assistants, document processing and workflow automation added to the software you already use.",
+   [
+    "Claude",
+    "OpenAI",
+    "Automation"
+   ]
+  ],
+  [
+   "cloud",
+   "Cloud, DevOps & support",
+   "Hosting, CI/CD, monitoring, security and long-term maintenance so the software keeps running.",
+   [
+    "AWS",
+    "CI/CD",
+    "Monitoring"
+   ]
+  ]
+ ],
+ "flow": [
+  [
+   "Discover",
+   "Week 1",
+   "Workshops with your team to map processes, users and the problems worth solving first.",
+   [
+    "Requirements doc",
+    "Process map"
+   ]
+  ],
+  [
+   "Plan & design",
+   "Weeks 2–3",
+   "Architecture, database design, UI/UX and a clickable prototype, then a fixed-scope estimate.",
+   [
+    "Architecture doc",
+    "UI prototype"
+   ]
+  ],
+  [
+   "Build",
+   "Sprints",
+   "Two-week sprints with a live staging link and a demo at the end of every sprint.",
+   [
+    "Staging environment",
+    "Sprint demos"
+   ]
+  ],
+  [
+   "Test & QA",
+   "Every sprint",
+   "Manual and automated testing, performance and security checks before anything reaches users.",
+   [
+    "Test reports",
+    "Security review"
+   ]
+  ],
+  [
+   "Launch",
+   "Go-live",
+   "Data migration, production deploy, user training and a smooth handover to your team.",
+   [
+    "Data migration",
+    "Training"
+   ]
+  ],
+  [
+   "Support & grow",
+   "Ongoing",
+   "Maintenance, new features, monitoring and fast fixes on a monthly plan.",
+   [
+    "Monthly report",
+    "Priority support"
+   ]
+  ]
+ ],
+ "cases": [
+  {
+   "id": "erp",
+   "tab": "ERP for a distribution business",
+   "tag": "ERP",
+   "industry": "Distribution",
+   "title": "One ERP instead of eleven spreadsheets",
+   "challenge": "Orders, stock and invoices lived in separate spreadsheets across three warehouses, so nobody trusted the numbers.",
+   "built": "A custom ERP with sales, purchasing, multi-warehouse inventory, accounting and role-based dashboards, plus a mobile app for pickers.",
+   "outcome": "Every department works from one live database, and month-end closing moved from a manual scramble to a report.",
+   "stack": [
+    "Next.js",
+    "Postgres",
+    "Supabase",
+    "React Native"
+   ],
+   "media": 2
+  },
+  {
+   "id": "pos",
+   "tab": "Retail POS & inventory",
+   "tag": "Business app",
+   "industry": "Retail",
+   "title": "Point of sale that keeps working offline",
+   "challenge": "A growing retail chain needed checkout, stock and staff management that works in every shop, even when the internet drops.",
+   "built": "An offline-first POS for tablets, central inventory with branch transfers, and an owner dashboard for sales by shop and product.",
+   "outcome": "Shops sell without interruptions and stock syncs automatically when the connection returns.",
+   "stack": [
+    "Mobile",
+    "Offline sync",
+    "Supabase",
+    "Stripe"
+   ],
+   "media": 0
+  },
+  {
+   "id": "ai",
+   "tab": "AI assistant for support",
+   "tag": "AI",
+   "industry": "SaaS",
+   "title": "An assistant that answers from the docs",
+   "challenge": "The support team answered the same product questions every day from a large, scattered knowledge base.",
+   "built": "An AI assistant inside the existing product that answers from the company docs with citations and hands off to a human when unsure.",
+   "outcome": "Common questions get instant answers, and the team spends its time on the conversations that need a person.",
+   "stack": [
+    "Claude",
+    "pgvector",
+    "Next.js"
+   ],
+   "media": 1
+  }
+ ],
+ "products": [
+  [
+   "Axzura",
+   "stack",
+   "An AI office management platform: finance, payroll, HR tracking and an AI overview of every document in one place.",
+   [
+    "Payroll and HR tracking",
+    "Finance at a glance",
+    "AI document overview"
+   ]
+  ],
+  [
+   "AI Voice Support",
+   "chat",
+   "A voice assistant you add to any website with one script. It talks to customers like a person, answering from your own knowledge base.",
+   [
+    "One-line website embed",
+    "Answers from your knowledge base",
+    "Natural, human-like voice"
+   ]
+  ],
+  [
+   "Opus Site Score",
+   "chart",
+   "Scores a website and turns the result into a clear list of what to fix first.",
+   [
+    "One overall score",
+    "Clear checks, pass or fail",
+    "Prioritised fix list"
+   ]
+  ]
+ ],
+ "text_reviews": [
+  [
+   "Operations head",
+   "Distribution company",
+   5,
+   "We moved sales, stock and accounts from spreadsheets into one ERP. The team trained every department and stayed with us after launch."
+  ],
+  [
+   "Founder",
+   "B2B SaaS",
+   5,
+   "They took our SaaS from a rough idea to paying customers. Clear sprints, honest estimates and a demo every two weeks."
+  ],
+  [
+   "Owner",
+   "Retail chain",
+   5,
+   "The POS works in every shop, even when the internet drops, and stock syncs on its own. Exactly what we needed."
+  ],
+  [
+   "CTO",
+   "Fintech startup",
+   5,
+   "A well organised team that still feels personal. Code quality and communication were both better than we expected."
+  ],
+  [
+   "Product lead",
+   "Healthtech",
+   4,
+   "They added an AI assistant to our existing app without breaking anything, and explained every trade-off in plain words."
+  ],
+  [
+   "Managing director",
+   "Manufacturing",
+   5,
+   "Production, purchasing and payroll finally talk to each other. Month-end is now a report, not a week of work."
+  ],
+  [
+   "Co-founder",
+   "Logistics",
+   5,
+   "Fast, reliable and easy to work with. They built our driver app and admin panel in one go."
+  ],
+  [
+   "Marketing manager",
+   "E-commerce",
+   5,
+   "Our store and back office were rebuilt on Next.js. Pages load fast and the admin is simple for the whole team."
+  ]
+ ],
+ "video_reviews": [
+  [
+   "Operations head",
+   "Distribution company",
+   "2:14",
+   "Our whole ERP moved from spreadsheets to one system, and the team trained every department."
+  ],
+  [
+   "Founder",
+   "B2B SaaS",
+   "1:48",
+   "They built our SaaS from zero to paying customers and still run it with us today."
+  ],
+  [
+   "Owner",
+   "Retail chain",
+   "3:02",
+   "The POS and inventory app works in all our shops and syncs perfectly with the back office."
+  ],
+  [
+   "CTO",
+   "Fintech startup",
+   "2:31",
+   "A large, organised team that still feels personal. Weekly demos kept everyone on track."
+  ],
+  [
+   "Product lead",
+   "Healthtech",
+   "1:57",
+   "They added an AI assistant to our existing app without breaking anything."
+  ]
+ ],
+ "models": [
+  [
+   "Discovery sprint",
+   "2 weeks",
+   "Scope a new system with requirements, a prototype and a fixed quote.",
+   [
+    "Workshops",
+    "Clickable prototype",
+    "Fixed quote"
+   ]
+  ],
+  [
+   "Fixed-scope build",
+   "2–6 months",
+   "We design, build, test and launch the software end to end for a fixed price.",
+   [
+    "Fixed scope & price",
+    "Sprint demos",
+    "Launch & training"
+   ]
+  ],
+  [
+   "Dedicated team",
+   "Monthly",
+   "A full team of developers, QA and a project manager working as part of yours.",
+   [
+    "Scales up or down",
+    "Your priorities",
+    "Monthly reporting"
+   ]
+  ]
+ ],
+ "faq": [
+  [
+   "What kind of software do you build?",
+   "ERP systems, business apps for SMBs (CRM, POS, inventory, booking), web apps and SaaS platforms, mobile apps, and AI features inside all of them."
+  ],
+  [
+   "Who owns the code?",
+   "You do. Everything ships to your repositories and your cloud account from day one."
+  ],
+  [
+   "Can you work with our existing team?",
+   "Yes. We can take over a project, extend your team with dedicated developers, or work alongside your engineers."
+  ],
+  [
+   "Do you support the software after launch?",
+   "Yes. Most clients stay on a monthly support plan for maintenance, monitoring, fixes and new features."
+  ]
+ ],
+ "values": [
+  [
+   "Experienced team",
+   "Developers, designers, QA and project managers who have shipped software together for years."
+  ],
+  [
+   "Ship every sprint",
+   "A live staging link and a demo at the end of every sprint. No black boxes."
+  ],
+  [
+   "Built to last",
+   "Clean code, tests and documentation so the system is easy to run and extend."
+  ],
+  [
+   "You own it",
+   "Your repo, your cloud, your data, from the first commit."
+  ]
+ ],
+ "clients": [
+  [
+   "Client 01",
+   "Retail",
+   "ERP system"
+  ],
+  [
+   "Client 02",
+   "Manufacturing",
+   "POS & inventory"
+  ],
+  [
+   "Client 03",
+   "Fintech",
+   "Payments dashboard"
+  ],
+  [
+   "Client 04",
+   "Healthcare",
+   "Patient records app"
+  ],
+  [
+   "Client 05",
+   "Logistics",
+   "Fleet tracking"
+  ],
+  [
+   "Client 06",
+   "SaaS",
+   "SaaS platform"
+  ],
+  [
+   "Client 07",
+   "Retail",
+   "Multi-branch ERP"
+  ],
+  [
+   "Client 08",
+   "Manufacturing",
+   "E-commerce back office"
+  ],
+  [
+   "Client 09",
+   "Fintech",
+   "Loan management"
+  ],
+  [
+   "Client 10",
+   "Healthcare",
+   "Clinic booking app"
+  ],
+  [
+   "Client 11",
+   "Logistics",
+   "Warehouse app"
+  ],
+  [
+   "Client 12",
+   "SaaS",
+   "AI support assistant"
+  ]
+ ]
+}
