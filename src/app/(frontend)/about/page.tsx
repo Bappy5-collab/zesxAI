@@ -19,6 +19,15 @@ const DEPT_COLOR: Record<string, string> = {
   Marketing: 'var(--color-coral-orange)',
   DevOps: 'var(--color-indigo-blue)',
 }
+const DEMO_TEAM_NAMES: Record<string, string> = {
+  'Tech Lead': 'Alex Morgan',
+  'Senior Full-stack Developer': 'Priya Shah',
+  'Mobile Developer': 'Jordan Lee',
+  'UI/UX Designer': 'Maya Chen',
+  'QA Engineer': 'Sam Taylor',
+  'Project Manager': 'Chris Rivera',
+  'Marketing Lead': 'Taylor Brooks',
+}
 const SILHOUETTE =
   '<svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="78" r="38" fill="currentColor"/><path d="M28 200c4-46 34-74 72-74s68 28 72 74z" fill="currentColor"/></svg>'
 
@@ -57,24 +66,34 @@ function Links({ linkedin, github }: { linkedin?: string | null; github?: string
   )
 }
 
-function MemberCard({ m, i }: { m: TeamMember; i: number }) {
+function AvatarIllustration() {
+  return (
+    <svg className="zx-member__avatar-art" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="50" fill="var(--bg-200)" />
+      <path d="M13 100c3-21 17-32 37-32s34 11 37 32H13Z" fill="var(--pc)" />
+      <path d="M40 63h20v15c-5 6-15 6-20 0V63Z" fill="#D99A78" />
+      <path d="M27 43c0-20 9-31 24-31s24 11 24 31v10c0 16-11 26-24 26S27 69 27 53V43Z" fill="#E8B99B" />
+      <path d="M26 47c-4-20 2-36 20-39 18-3 32 8 32 28 0 6-1 10-3 14-2-8-5-12-9-17-9 6-22 9-38 8v7l-2 1Z" fill="#25304A" />
+      <path d="M38 50h.5M61.5 50h.5" stroke="#25304A" strokeWidth="3" strokeLinecap="round" />
+      <path d="M44 62c4 3 8 3 12 0" fill="none" stroke="#9B5F50" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function MemberCard({ m }: { m: TeamMember }) {
+  const name = m.isSample && m.name === 'Team member' ? DEMO_TEAM_NAMES[m.role] || m.name : m.name
   return (
     <article className="zx-member" data-dept={m.department} style={{ ['--pc' as string]: DEPT_COLOR[m.department] || 'var(--color-solar-orange)' }}>
-      <Photo src={mediaUrl(m.photo)} alt={m.name} sample={m.isSample}>
-        {(m.bio || m.linkedin || m.github) && (
-          <div className="zx-member__over">
-            {m.bio && <p>{m.bio}</p>}
-            <Links linkedin={m.linkedin} github={m.github} />
-          </div>
-        )}
-      </Photo>
+      <div className="zx-member__avatar" aria-hidden="true"><AvatarIllustration /></div>
       <div className="zx-member__body">
-        <b>{m.name}</b>
+        <b>{name}</b>
         <span>{m.role}</span>
         <span className="zx-member__dept">
           <i />
           {m.department}
         </span>
+        {m.bio && <p className="zx-member__bio">{m.bio}</p>}
+        <Links linkedin={m.linkedin} github={m.github} />
       </div>
     </article>
   )
@@ -160,7 +179,7 @@ export default async function AboutPage() {
         <section className="zx-section" style={{ paddingTop: 0 }}>
           <div className="zx-wrap">
             <div className="zx-founder zx-reveal" style={{ ['--pc' as string]: 'var(--color-solar-orange)' }}>
-              <Photo src={mediaUrl(f.photo)} alt={f.name} />
+              <Photo src="/images/CEO/abdullah-al-safi.jpg" alt={f.name} />
               <div className="zx-founder__txt">
                 {f.role && <span className="zx-founder__role">{f.role}</span>}
                 <h3>{f.name}</h3>
@@ -200,8 +219,8 @@ export default async function AboutPage() {
                 </div>
               )}
               <StaggerIn className="zx-team" gap={0.06}>
-                {team.map((m, i) => (
-                  <MemberCard m={m} i={i} key={m.id} />
+                {team.map((m) => (
+                  <MemberCard m={m} key={m.id} />
                 ))}
               </StaggerIn>
             </div>

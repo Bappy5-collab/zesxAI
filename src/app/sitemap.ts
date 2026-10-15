@@ -1,12 +1,14 @@
 import type { MetadataRoute } from 'next'
 import { getClient } from '@/lib/payload'
 import { getSite } from '@/lib/seo'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const dynamic = 'force-dynamic'
 
 /** Built on every request from the CMS: static pages, every service page and every case study. Hidden (noindex) pages are left out. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const { url } = await getSite()
+  const { s, url } = await getSite()
+  if (s.seo?.noindex) return []
   const payload = await getClient()
   const pages: [string, string, number, MetadataRoute.Sitemap[number]['changeFrequency']][] = [
     ['/', 'home-page', 1, 'weekly'],
@@ -22,9 +24,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const [path, slug, priority, changeFrequency] of pages) {
     const g = (await payload.findGlobal({ slug: slug as 'home-page', depth: 0 })) as { updatedAt?: string; meta?: { noindex?: boolean | null } }
     if (g.meta?.noindex) continue
-    out.push({ url: `${url}${path === '/' ? '' : path}` || url, lastModified: g.updatedAt ? new Date(g.updatedAt) : new Date(), changeFrequency, priority })
+    out.push({ url: `${url}${path === '/' ? '' : path}` || url, lastModified: g.updatedAt ? new Date(g.updatedAt) : undefined, changeFrequency, priority })
   }
-  out.push({ url: `${url}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 })
+  out.push({ url: `${url}/blog`, changeFrequency: 'weekly', priority: 0.7 })
+  for (const post of blogPosts) out.push({ url: `${url}/blog/${post.slug}`, changeFrequency: 'yearly', priority: 0.6 })
   const [services, cases] = await Promise.all([
     payload.find({ collection: 'services', limit: 500, depth: 0, pagination: false }),
     payload.find({ collection: 'case-studies', limit: 500, depth: 0, pagination: false }),

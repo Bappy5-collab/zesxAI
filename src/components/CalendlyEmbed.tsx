@@ -56,5 +56,5 @@ export function CalendlyEmbed({ url }: { url: string }) {
     Object.entries(COLORS[theme]).forEach(([k, v]) => u.searchParams.set(k, v))
     src = u.toString()
   } catch {}
-  return <iframe ref={iframeRef} key={theme} src={src} title="Book a call with Zesxai" loading="lazy" />
+  return <iframe ref={iframeRef} key={theme} src={src} title="Book a call with Zesxai" loading="lazy" scrolling="no" />
 }

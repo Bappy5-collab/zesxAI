@@ -6,7 +6,19 @@ type Meta = { title?: string | null; description?: string | null; image?: unknow
 
 export async function getSite() {
   const s = await loadGlobal('site-settings')
-  const url = (s.siteUrl || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '')
+  const configuredUrl = (s.siteUrl || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').trim()
+  // Accept host-only values such as "example.com" from the CMS or env file.
+  // URL() requires an absolute URL, so normalize before using it for metadata.
+  const withProtocol = /^https?:\/\//i.test(configuredUrl) ? configuredUrl : `https://${configuredUrl}`
+  let url = 'https://zesxai.com'
+  try {
+    const parsed = new URL(withProtocol)
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      url = parsed.toString().replace(/\/+$/, '')
+    }
+  } catch {
+    // Keep the local fallback when the CMS or environment contains an invalid URL.
+  }
   return { s, url }
 }
 
@@ -18,7 +30,9 @@ const ogText = (t: string) => t.split('|').map((x) => x.trim()).sort((a, b) => b
 export async function pageMetadata(opts: { meta: Meta; path: string; title?: string | null; description?: string | null; eyebrow?: string; type?: 'website' | 'article' }): Promise<Metadata> {
   const { s, url } = await getSite()
   const title = opts.meta?.title || opts.title || s.seo?.defaultTitle || s.siteName || 'Zesxai'
-  const description = (opts.meta?.description || opts.description || s.metaDescription || '').slice(0, 300) || undefined
+  const siteName = s.siteName || 'Zesxai'
+  const fallbackDescription = `${title}. ${s.metaDescription || `${siteName} builds custom software, ERP systems, business apps, SaaS platforms, and AI solutions.`}`
+  const description = (opts.meta?.description || opts.description || fallbackDescription).trim().slice(0, 300) || undefined
   const canonical = `${url}${opts.path === '/' ? '' : opts.path}` || url
   const img =
     mediaUrl(opts.meta?.image) ||

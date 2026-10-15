@@ -149,13 +149,13 @@ await payload.updateGlobal({
 // ---- Team (placeholders except the founder). Replace in Content → Team. ----
 const team: [string, string, string, string, boolean][] = [
   ['Md Abdullah Al Safi', 'Founder & CEO', 'Leadership', 'Full-stack developer for 7+ years. Leads architecture and delivery across ERP, SaaS, mobile and AI.', false],
-  ['Team member', 'Tech Lead', 'Engineering', 'Owns architecture, code reviews and releases on client projects.', true],
-  ['Team member', 'Senior Full-stack Developer', 'Engineering', 'Next.js, Node.js and Postgres. Builds dashboards, portals and APIs.', true],
-  ['Team member', 'Mobile Developer', 'Engineering', 'React Native apps for iOS and Android, offline first.', true],
-  ['Team member', 'UI/UX Designer', 'Design', 'Research, flows and interfaces that real users understand.', true],
-  ['Team member', 'QA Engineer', 'Quality assurance', 'Manual and automated testing on every sprint.', true],
-  ['Team member', 'Project Manager', 'Project management', 'Your single point of contact, weekly updates and clear timelines.', true],
-  ['Team member', 'Marketing Lead', 'Marketing', 'SEO, content, social and ads for Growth plan clients.', true],
+  ['Alex Morgan', 'Tech Lead', 'Engineering', 'Owns architecture, code reviews and releases on client projects.', true],
+  ['Priya Shah', 'Senior Full-stack Developer', 'Engineering', 'Next.js, Node.js and Postgres. Builds dashboards, portals and APIs.', true],
+  ['Jordan Lee', 'Mobile Developer', 'Engineering', 'React Native apps for iOS and Android, offline first.', true],
+  ['Maya Chen', 'UI/UX Designer', 'Design', 'Research, flows and interfaces that real users understand.', true],
+  ['Sam Taylor', 'QA Engineer', 'Quality assurance', 'Manual and automated testing on every sprint.', true],
+  ['Chris Rivera', 'Project Manager', 'Project management', 'Your single point of contact, weekly updates and clear timelines.', true],
+  ['Taylor Brooks', 'Marketing Lead', 'Marketing', 'SEO, content, social and ads for Growth plan clients.', true],
 ]
 for (const [i, [name, role, department, bio, isSample]] of team.entries()) {
   await payload.create({ collection: 'team-members', data: { name, role, department: department as never, bio, isSample, showInHero: i < 6, order: i } })

@@ -32,19 +32,26 @@ export function Nav({ siteName, items, cta, logo, logoLight }: { siteName: strin
           <a className="zx-btn zx-btn--primary zx-btn--sm" href="/contact#book">
             {cta}
           </a>
-          <button className="zx-btn zx-btn--ghost zx-btn--icon zx-btn--sm zx-nav__menu" aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(!open)}>
-            <Icon name="menu" inline />
+          <button className="zx-btn zx-btn--ghost zx-btn--icon zx-btn--sm zx-nav__menu" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen(!open)}>
+            <Icon name={open ? 'close' : 'menu'} inline />
           </button>
         </div>
       </div>
       <div className={`zx-nav__sheet${open ? ' is-open' : ''}`} onClick={(e) => e.target === e.currentTarget && setOpen(false)}>
-        <nav aria-label="Mobile">
-          {[...items, { href: '/contact#book', label: cta }].map(({ href, label }) => (
-            <a href={href} key={href} aria-current={cur(href)}>
-              {label}
-            </a>
-          ))}
-        </nav>
+        <div className="zx-nav__modal">
+          <button className="zx-btn zx-btn--ghost zx-btn--icon zx-nav__close" type="button" aria-label="Close menu" onClick={() => setOpen(false)}>
+            <Icon name="close" inline />
+          </button>
+          <div className="zx-nav__panel">
+            <nav aria-label="Mobile">
+              {[...items, { href: '/contact#book', label: cta }].map(({ href, label }) => (
+                <a href={href} key={href} aria-current={cur(href)}>
+                  {label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
       </div>
     </header>
   )
