@@ -98,31 +98,23 @@ export function Gallery({ tiles, images, id = 'gallery-home' }: { tiles: Gallery
 type Listing = NonNullable<SiteSetting['listings']>[number]
 
 export function Listings({ items }: { items?: Listing[] | null }) {
-  if (!items?.length) return null
+  const logoItems = (items || []).flatMap((item, index) => {
+    const logo = mediaUrl(item.badge)
+    return logo ? [{ item, logo, index }] : []
+  })
+  if (!logoItems.length) return null
   return (
     <div className="zx-listings">
       <span className="zx-eyebrow">Find us on</span>
-      {items.map((l, i) => {
-        const badge = mediaUrl(l.badge)
-        const inner = (
-          <>
-            <span className="zx-listing__mark" aria-hidden="true">
-              {badge ? <img src={badge} alt="" /> : l.name.trim()[0]}
-            </span>
-            <span className="zx-listing__txt">
-              <b>{l.name}</b>
-              {l.note && <span>{l.note}</span>}
-            </span>
-            {l.url && <Arrow />}
-          </>
-        )
-        return l.url ? (
-          <a className="zx-listing" href={l.url} target="_blank" rel="noopener noreferrer" key={l.id || i}>
-            {inner}
+      {logoItems.map(({ item, logo, index }) => {
+        const image = <img className="zx-listing__badge" src={logo} alt={item.name} />
+        return item.url ? (
+          <a className="zx-listing zx-listing--logo" href={item.url} target="_blank" rel="noopener noreferrer" key={item.id || index}>
+            {image}
           </a>
         ) : (
-          <div className="zx-listing" key={l.id || i}>
-            {inner}
+          <div className="zx-listing zx-listing--logo" key={item.id || index}>
+            {image}
           </div>
         )
       })}

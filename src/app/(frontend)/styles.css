@@ -138,6 +138,8 @@ summary::-webkit-details-marker { display: none; }
 @media (prefers-reduced-motion: reduce) { .zx-blog-card, .zx-blog-card__image img, .zx-blog-scroll span { transition: none; }.zx-blog-card__body { animation: none; }.zx-blog-orbit__ring { animation: none; } }
 
 .zx-pricer__glow { box-shadow: 0 0 0 1px transparent; }
+.zx-listing--logo { min-height: 76px; justify-content: center; padding: 10px 18px; }
+.zx-listing--logo .zx-listing__badge { height: 56px; max-width: 190px; object-fit: contain; }
 
 /* Brighter hero backdrop images (bundle.css dims the gallery to .62 / .5). */
 .zx-hero.zx-hero--backdrop .zx-gallery { opacity: .85; }
