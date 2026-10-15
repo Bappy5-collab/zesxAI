@@ -2,8 +2,7 @@
 export function Logo({ alt, logo, logoLight }: { alt: string; logo?: string | null; logoLight?: string | null }) {
   const dark = logo || '/brand/zesxai-wordmark.svg'
   const light = logoLight || (logo ? logo : '/brand/zesxai-wordmark-dark.svg')
-  // Keep uploaded wordmarks prominent in the navbar and footer while preserving
-  // their original proportions. The navbar is 60px tall.
+  // Preserve the prominent wordmark sizing used before the navbar alignment fix.
   const st = { height: 80, width: 'auto', maxWidth: 'min(420px, 48vw)', objectFit: 'contain' as const }
   return (
     <>

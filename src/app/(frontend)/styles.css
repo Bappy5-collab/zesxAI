@@ -211,6 +211,12 @@ img, video, iframe { max-width: 100%; }
   .zx-prose p { font-size: 16px; line-height: 1.75; }
 }
 
+/* Keep the wordmark, centered navigation, and actions on one shared baseline. */
+@media (min-width: 1100px) {
+  .zx-nav__bar { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); padding-inline: 24px; }
+  .zx-nav__links { justify-self: center; margin: 0; }
+  .zx-nav__cta { justify-self: end; }
+}
 @keyframes zx-menu-backdrop { from { opacity: 0; } to { opacity: 1; } }
 @keyframes zx-menu-in { from { opacity: 0; transform: translateY(30px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
 

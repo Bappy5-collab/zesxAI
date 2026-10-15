@@ -10,16 +10,19 @@ import {
 } from '@/components/sections'
 
 const HERO_IMAGES = [
-  '/images/Hero/site_score.png',
-  '/images/Hero/Screenshot%202026-10-14%20131517.png',
-  '/images/Hero/Screenshot%202026-10-14%20131347.png',
-  '/images/Hero/Screenshot%202026-10-14%20131334.png',
-  '/images/Hero/Screenshot%202026-10-14%20130142.png',
-  '/images/Hero/Screenshot%202026-10-12%20132631.png',
-  '/images/Hero/Screenshot%202026-09-15%20215646.png',
-  '/images/Hero/Screenshot%202026-07-26%20074627.png',
-  '/images/Hero/Screenshot%202026-07-26%20074512.png',
-  '/images/Hero/Screenshot%202026-07-26%20074148.png',
+  '/images/hero/site_score.png',
+  '/images/hero/Screenshot%202026-10-14%20131517.png',
+  '/images/hero/Screenshot%202026-10-14%20131347.png',
+  '/images/hero/Screenshot%202026-10-14%20131334.png',
+  '/images/hero/Screenshot%202026-10-14%20130142.png',
+  '/images/hero/Screenshot%202026-10-12%20132631.png',
+  '/images/hero/Screenshot%202026-09-15%20215646.png',
+  '/images/hero/Screenshot%202026-07-26%20074627.png',
+  '/images/hero/Screenshot%202026-07-26%20074512.png',
+  '/images/hero/Screenshot%202026-07-26%20074148.png',
+  '/images/hero/axzura_1.png',
+  '/images/hero/axzura_2.png',
+  '/images/hero/axzura_3.png',
 ]
 
 export async function generateMetadata() {

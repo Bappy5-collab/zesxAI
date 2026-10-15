@@ -563,11 +563,16 @@ const STATUS: Record<string, [string, string]> = {
   live: ['Live', 'zx-chip--done'],
 }
 export function Products({ products }: { products: Product[] }) {
+  const productImages: Record<string, string> = {
+    Axzura: '/images/products/AI-Powered%20Office%20Workspace.png',
+    'AI Voice Support': '/images/products/Axzura%20Voice%20AI%20Neon%20Workspace.png',
+    'Opus Site Score': '/images/products/AI-Powered%20Website%20Audit%20Dashboard.png',
+  }
   return (
     <StaggerIn className="zx-products" gap={0.12}>
       {products.map((p, i) => {
         const [label, chip] = STATUS[p.status] || STATUS['coming-soon']
-        const img = mediaUrl(p.image)
+        const img = productImages[p.name] || mediaUrl(p.image)
         const live = p.status !== 'coming-soon' && p.url
         return (
           <article className="zx-product" key={p.id}>
